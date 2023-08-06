@@ -62,7 +62,15 @@ $ aws sts get-caller-identity
     "Arn": "arn:aws:iam::827589484650:user/ec2-base-admin"
 }
 ```
-the problem was that while I had setup access_key and secret_key in my private .aws directory, the script was trying to override these
+the problem was that while I had setup access_key and secret_key in my private .aws directory:
+
+```
+$ grep access_key ~/.aws/credentials | cut -c 1-28
+aws_access_key_id = AKIA4BMB
+aws_secret_access_key = ACPJ
+```
+
+BUT the script was trying to override these
 
 
 ```
